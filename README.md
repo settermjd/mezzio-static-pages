@@ -28,6 +28,20 @@ Run the following to install this library:
 $ composer require mezzio/mezzio-static-pages
 ```
 
+If you want to automate the enabling of the module when running `composer require/install/update`, then your project needs to use https://github.com/laminas/laminas-component-installer[laminas/laminas-component-installer].
+If it does, when the package is installed you'll be asked if you want to enable its [ConfigProvider](https://docs.laminas.dev/laminas-config-aggregator/config-providers/).
+Answer with `Y` and the package will be ready to use.
+
+If you don't use laminas-component-installer, or for some reason or other can't, then ensure that `\StaticPages\ConfigProvider::class,` is in the `ConfigAggregator` list in `config/config.php`, as in the example below.
+
+```php
+$aggregator = new ConfigAggregator(
+    [
+        \StaticPages\ConfigProvider::class,
+    ]
+);
+```
+
 ## Documentation
 
 Browse the documentation online at https://docs.mezzio.dev/mezzio-static-pages/
