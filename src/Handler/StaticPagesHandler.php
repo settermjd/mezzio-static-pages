@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Settermjd\StaticPages\Handler;
+namespace Mezzio\StaticPages\Handler;
 
 use Laminas\Diactoros\Response\HtmlResponse;
 use Mezzio\Exception\InvalidArgumentException;
 use Mezzio\Router\RouteResult;
-use Mezzio\Router\RouterInterface;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -21,12 +20,10 @@ final class StaticPagesHandler implements RequestHandlerInterface
     public const ROUTE_NAME_PREFIX = 'static.';
     public const TEMPLATE_NS       = 'static-pages';
 
-    private RouterInterface $router;
     private TemplateRendererInterface $template;
 
-    public function __construct(RouterInterface $router, TemplateRendererInterface $template)
+    public function __construct(TemplateRendererInterface $template)
     {
-        $this->router   = $router;
         $this->template = $template;
     }
 

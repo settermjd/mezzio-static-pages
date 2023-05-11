@@ -39,12 +39,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Mezzio\\StaticPages\\": "src/StaticPages/"
+      "Mezzio\\StaticPages\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Mezzio\\StaticPages\\Test\\": "test/StaticPagesTest/"
+      "MezzioTest\\StaticPages\\": "test/"
     }
   },
   "extra": {

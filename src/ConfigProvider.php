@@ -7,7 +7,7 @@ namespace Mezzio\StaticPages;
 final class ConfigProvider
 {
     /**
-     * @return array<mixed>
+     * @return array<string,array>
      */
     public function __invoke(): array
     {
@@ -17,10 +17,14 @@ final class ConfigProvider
     }
 
     /**
-     * @return array<mixed>
+     * @return array<string,array<string,string>>
      */
     public function getDependencies(): array
     {
-        return [];
+        return [
+            'factories' => [
+                Handler\StaticPagesHandler::class => Handler\StaticPagesHandlerFactory::class,
+            ],
+        ];
     }
 }

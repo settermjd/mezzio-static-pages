@@ -2,27 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Settermjd\StaticPages\Test\Handler;
+namespace MezzioTest\StaticPages\Handler;
 
 use Laminas\Diactoros\Response\HtmlResponse;
 use Mezzio\Exception\InvalidArgumentException;
 use Mezzio\Router\RouteResult;
-use Mezzio\Router\RouterInterface;
+use Mezzio\StaticPages\Handler\StaticPagesHandler;
 use Mezzio\Template\TemplateRendererInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Settermjd\StaticPages\Handler\StaticPagesHandler;
 
 class StaticPagesHandlerTest extends TestCase
 {
-    /** @var MockObject&ContainerInterface  */
-    private $container;
-
-    /** @var MockObject&RouterInterface  */
-    private $router;
-
     /** @var MockObject&TemplateRendererInterface  */
     private $renderer;
 
@@ -34,8 +26,6 @@ class StaticPagesHandlerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->container   = $this->createMock(ContainerInterface::class);
-        $this->router      = $this->createMock(RouterInterface::class);
         $this->renderer    = $this->createMock(TemplateRendererInterface::class);
         $this->request     = $this->createMock(ServerRequestInterface::class);
         $this->routeResult = $this->createMock(RouteResult::class);
@@ -49,7 +39,7 @@ class StaticPagesHandlerTest extends TestCase
             ->with('static-pages::terms')
             ->willReturn('');
 
-        $page = new StaticPagesHandler($this->router, $this->renderer);
+        $page = new StaticPagesHandler($this->renderer);
 
         $this->routeResult
             ->expects($this->once())
@@ -78,7 +68,7 @@ class StaticPagesHandlerTest extends TestCase
             ->with('static-pages::terms')
             ->willReturn('');
 
-        $page = new StaticPagesHandler($this->router, $this->renderer);
+        $page = new StaticPagesHandler($this->renderer);
 
         $this->routeResult
             ->expects($this->once())
@@ -108,7 +98,7 @@ class StaticPagesHandlerTest extends TestCase
             ->with('static-pages::terms')
             ->willReturn('');
 
-        $page = new StaticPagesHandler($this->router, $this->renderer);
+        $page = new StaticPagesHandler($this->renderer);
 
         $this->routeResult
             ->expects($this->once())
