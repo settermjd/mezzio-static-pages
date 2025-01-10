@@ -17,5 +17,4 @@
 
     <!-- Include all rules from the Laminas Coding Standard -->
     <rule ref="LaminasCodingStandard"/>
-
 </ruleset>
