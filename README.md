@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # mezzio-static-pages
 
 [![Build Status](https://github.com/mezzio/mezzio-static-pages/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/mezzio/mezzio-static-pages/actions/workflows/continuous-integration.yml)
@@ -18,7 +19,7 @@
 >
 > You trust us enough to use our software. We ask that you trust us to say the truth on this. We need your help. Go out and protest this unnecessary war. Stop the bloodshed. Say "stop the war!"
 
-This library simplifies rendering static pages in [Mezzio](https://docs.mezzio.dev/mezzio/) applications.
+This library simplifies rendering static pages in [Mezzio][mezzio] applications.
 
 > [!IMPORTANT]
 > This module **does not** support laminas-mvc applications.
@@ -28,11 +29,11 @@ This library simplifies rendering static pages in [Mezzio](https://docs.mezzio.d
 Run the following to install this library:
 
 ```bash
-$ composer require mezzio/mezzio-static-pages
+composer require mezzio/mezzio-static-pages
 ```
 
-If you want to automate the enabling of the module when running `composer require/install/update`, then your project needs to use https://github.com/laminas/laminas-component-installer[laminas/laminas-component-installer].
-If it does, when the package is installed you'll be asked if you want to enable its [ConfigProvider](https://docs.laminas.dev/laminas-config-aggregator/config-providers/).
+If you want to automate the enabling of the module when running `composer require/install/update`, then your project needs to use [laminas/laminas-component-installer][laminas-component-installer].
+If it does, when the package is installed you'll be asked if you want to enable its [ConfigProvider][config-providers].
 Answer with `Y` and the package will be ready to use.
 
 If you don't use laminas-component-installer, or for some reason or other can't, then ensure that `\StaticPages\ConfigProvider::class,` is in the `ConfigAggregator` list in `config/config.php`, as in the example below.
@@ -47,9 +48,16 @@ $aggregator = new ConfigAggregator(
 
 ## Documentation
 
-Browse the documentation online at https://docs.mezzio.dev/mezzio-static-pages/
+Browse the [documentation online][online-documentation].
 
 ## Support
 
 * [Issues](https://github.com/mezzio/mezzio-static-pages/issues/)
 * [Forum](https://discourse.laminas.dev/)
+
+[config-providers]: https://docs.laminas.dev/laminas-config-aggregator/config-providers
+[mezzio]: https://docs.mezzio.dev/mezzio/
+[online-documentation]: https://docs.mezzio.dev/mezzio-static-pages
+[laminas-component-installer]: https://github.com/laminas/laminas-component-installer
+
+<!-- markdownlint-enable MD013 -->
