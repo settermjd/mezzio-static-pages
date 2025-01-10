@@ -27,15 +27,16 @@
   },
   "require-dev": {
     "filp/whoops": "^2.5.0",
+    "laminas/laminas-coding-standard": "~2.5.0",
+    "laminas/laminas-development-mode": "^3.3.0",
+    "phpbench/phpbench": "^1.3",
     "phpstan/phpstan": "^0.12",
     "phpstan/phpstan-strict-rules": "^0.12",
     "phpunit/phpunit": "^10.0.19",
+    "psalm/plugin-phpunit": "^0.18.4",
     "roave/security-advisories": "dev-master",
     "squizlabs/php_codesniffer": "^3.7.2",
-    "laminas/laminas-coding-standard": "~2.5.0",
-    "laminas/laminas-development-mode": "^3.3.0",
-    "vimeo/psalm": "^5.9",
-    "psalm/plugin-phpunit": "^0.18.4"
+    "vimeo/psalm": "^5.9"
   },
   "autoload": {
     "psr-4": {
@@ -68,6 +69,7 @@
       "@static-analysis",
       "@test"
     ],
+    "check-docs": "markdownlint README.md",
     "cs-check": "phpcs",
     "cs-fix": "phpcbf",
     "test": "phpunit --colors=always",
