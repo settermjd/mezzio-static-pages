@@ -15,8 +15,7 @@ use Settermjd\StaticPages\Handler\StaticPagesHandlerFactory;
 
 class StaticPagesFactoryTest extends TestCase
 {
-    /** @var MockObject&ContainerInterface  */
-    protected $container;
+    protected MockObject&ContainerInterface $container;
 
     protected function setUp(): void
     {

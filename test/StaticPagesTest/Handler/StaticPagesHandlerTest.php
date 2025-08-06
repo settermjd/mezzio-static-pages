@@ -9,6 +9,7 @@ use Mezzio\Exception\InvalidArgumentException;
 use Mezzio\Router\RouteResult;
 use Mezzio\Router\RouterInterface;
 use Mezzio\Template\TemplateRendererInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
@@ -17,20 +18,16 @@ use Settermjd\StaticPages\Handler\StaticPagesHandler;
 
 class StaticPagesHandlerTest extends TestCase
 {
-    /** @var MockObject&ContainerInterface  */
-    private $container;
+    private MockObject&ContainerInterface $container;
 
-    /** @var MockObject&RouterInterface  */
-    private $router;
+    private MockObject&RouterInterface $router;
 
-    /** @var MockObject&TemplateRendererInterface  */
-    private $renderer;
+    private MockObject&TemplateRendererInterface $renderer;
 
-    /** @var MockObject&ServerRequestInterface  */
-    private $request;
+    private MockObject&ServerRequestInterface $request;
 
-    /** @var MockObject&RouteResult  */
-    private $routeResult;
+    /** @var   */
+    private MockObject&RouteResult $routeResult;
 
     protected function setUp(): void
     {
@@ -94,9 +91,7 @@ class StaticPagesHandlerTest extends TestCase
         $page->handle($this->request);
     }
 
-    /**
-     * @dataProvider invalidRouteNameDataProvider
-     */
+    #[DataProvider("invalidRouteNameDataProvider")]
     public function testThrowsExceptionWhenTheRequestedRouteNameDoesNotMatchTheExpectedFormat(string $routeName): void
     {
         $this->expectException(InvalidArgumentException::class);
